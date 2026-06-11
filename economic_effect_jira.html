@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Оценка экономической эффективности (Импортозамещение)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f8f9fa;
+    color: #212529;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .slide {
+    width: 1200px;
+    padding: 40px 50px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #0d6efd;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  .context-box {
+    background: #e7f1ff;
+    border-left: 5px solid #0d6efd;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #495057;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+  }
+  .calc-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+  .calc-val {
+    font-weight: 600;
+    color: #212529;
+  }
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px dashed #dee2e6;
+    font-size: 18px;
+    font-weight: 700;
+    color: #198754;
+  }
+  .total-row.cost {
+    color: #dc3545;
+  }
+  .roi-box {
+    background: #212529;
+    color: white;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+  }
+  .roi-title { font-size: 20px; font-weight: 600; margin-bottom: 15px; color: #adb5bd;}
+  .roi-value { font-size: 48px; font-weight: 700; color: #20c997; margin-bottom: 10px;}
+  .roi-formula { font-size: 14px; color: #6c757d; font-family: monospace; margin-bottom: 30px;}
+  
+  .payback-val { font-size: 32px; font-weight: 700; color: #0dcaf0; }
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <h1>Оценка экономической эффективности (Кейс: Импортозамещение)</h1>
+
+  <div class="context-box">
+    <strong>Бизнес-легенда (отдел МСБ ПСБ Банка, 200 сотрудников):</strong><br>
+    <strong>Предпосылки:</strong> Централизованный запрет на использование зарубежного ПО (Jira). Попытка перехода на отечественные Enterprise-аналоги (напр. Naumen Project Ruler) показала их избыточность и неудобство для быстрых задач отдела МСБ.<br>
+    <strong>Стратегия:</strong> Разработка собственной (In-House) легковесной системы по примеру Сбера.<br>
+    <strong>TO-BE (Решение):</strong> Собственный <strong>VK Mini App + Чат-бот</strong>. Полное отсутствие лицензионных платежей за пользователя (Open-Source стек: Python, PostgreSQL), мгновенный мобильный доступ без VPN через привычное приложение ВКонтакте.
+  </div>
+
+  <div class="grid-2">
+    <!-- Экономия -->
+    <div class="card">
+      <div class="card-title">1. Годовая экономия (Сбережения)</div>
+      
+      <div style="font-size: 13px; color: #6c757d; margin-bottom: 10px;">Отказ от подписки Jira (200 чел × 1 200 ₽/мес × 12)</div>
+      <div class="calc-row">
+        <span>Экономия на лицензиях:</span>
+        <span class="calc-val">2 880 000 ₽</span>
+      </div>
+
+      <div style="font-size: 13px; color: #6c757d; margin-top: 15px; margin-bottom: 10px;">Мобильность (без VPN). Экономия 3 мин/день × 250 дн × 200 чел. Ставка: 900 ₽/ч.</div>
+      <div class="calc-row">
+        <span>Экономия рабочего времени:</span>
+        <span class="calc-val">2 250 000 ₽</span>
+      </div>
+
+      <div class="total-row">
+        <span>Итого экономия (E):</span>
+        <span>5 130 000 ₽ / год</span>
+      </div>
+    </div>
+
+    <!-- Затраты -->
+    <div class="card">
+      <div class="card-title">2. Затраты на внедрение (Инвестиции)</div>
+      
+      <div style="font-size: 13px; color: #6c757d; margin-bottom: 10px;">Команда разработки (3 чел × 125 000 ₽ × 4 месяца)</div>
+      <div class="calc-row">
+        <span>ФОТ разработчиков (C<sub>dev</sub>):</span>
+        <span class="calc-val">1 500 000 ₽</span>
+      </div>
+
+      <div style="font-size: 13px; color: #6c757d; margin-top: 15px; margin-bottom: 10px;">Аренда облачного сервера PostgreSQL + Бэкенд</div>
+      <div class="calc-row">
+        <span>Инфраструктура (C<sub>infra</sub>):</span>
+        <span class="calc-val">150 000 ₽</span>
+      </div>
+
+      <div class="total-row cost">
+        <span>Итого затраты (I):</span>
+        <span>1 650 000 ₽</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROI Box -->
+  <div class="roi-box">
+    <div class="grid-2" style="margin-bottom:0; gap: 20px;">
+      <div>
+        <div class="roi-title">ROI (Рентабельность)</div>
+        <div class="roi-value">210%</div>
+        <div class="roi-formula">ROI = (E - I) / I × 100% = (5.13M - 1.65M) / 1.65M</div>
+      </div>
+      <div style="border-left: 1px solid #495057;">
+        <div class="roi-title">Срок окупаемости</div>
+        <div class="payback-val">~ 3.8 месяца</div>
+        <div class="roi-formula" style="margin-top: 15px;">Payback = I / (E / 12 мес) = 1.65M / 0.427M</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

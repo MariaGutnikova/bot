@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>BPMN: Процесс создания задачи</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 1000px;
+  }
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>BPMN-модель: Бизнес-процесс «Создание новой задачи»</h2>
+  <div class="mermaid">
+    %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#333333', 'lineColor': '#555555', 'fontFamily': 'Arial', 'fontSize': '13px'}}}%%
+    flowchart TD
+      classDef startEvent fill:#fff,stroke:#4caf50,stroke-width:2px;
+      classDef endEvent fill:#fff,stroke:#f44336,stroke-width:4px;
+      classDef task fill:#e3f2fd,stroke:#1e88e5,stroke-width:1.5px;
+      classDef dbTask fill:#fff3e0,stroke:#fb8c00,stroke-width:1.5px;
+      classDef gateway fill:#fff,stroke:#ffb300,stroke-width:2px;
+
+      subgraph Pool_User ["👤 Руководитель / Сотрудник"]
+        START((Начало)):::startEvent --> U1["Заполнение формы (текст, дедлайн, исполнитель)"]:::task
+        U1 --> U2["Нажатие кнопки 'Создать'"]:::task
+      end
+
+      subgraph Pool_App ["💻 Клиент (VK Mini App)"]
+        A1["Локальная валидация данных"]:::task
+        GW1{"Данные корректны?"}:::gateway
+        A2["Отправка POST-запроса на сервер"]:::task
+        A3["Отображение задачи на Kanban-доске"]:::task
+        
+        U2 --> A1
+        A1 --> GW1
+        GW1 -- "Ошибки в форме" --> U1
+        GW1 -- "Всё ок" --> A2
+      end
+
+      subgraph Pool_Server ["⚙️ Сервер (FastAPI)"]
+        S1["Проверка авторизации (VK ID)"]:::task
+        S2["Генерация ORM-запроса на добавление"]:::task
+        
+        A2 -- "HTTP POST /tasks" --> S1
+        S1 --> S2
+      end
+
+      subgraph Pool_DB ["🗄 База Данных (PostgreSQL)"]
+        DB[(Запись новой строки в таблицу tasks)]:::dbTask
+        
+        S2 --> DB
+      end
+
+      %% Возврат по стеку
+      DB -- "Возврат сгенерированного ID" --> S2
+      S2 -- "HTTP 200 (Success) + JSON задачи" --> A3
+      
+      END_EV((Конец)):::endEvent
+      A3 --> END_EV
+  </div>
+</div>
+
+<script>
+  mermaid.initialize({ 
+    startOnLoad: true,
+    flowchart: {
+      nodeSpacing: 15,
+      rankSpacing: 40,
+      padding: 15
+    }
+  });
+</script>
+
+</body>
+</html>

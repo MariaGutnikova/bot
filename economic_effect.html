@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Оценка экономической эффективности</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .slide {
+    width: 1200px;
+    padding: 40px 50px;
+    background: white;
+  }
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  th {
+    background: #4A7ebb;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #fff;
+  }
+  td {
+    background: #e9edf4;
+    padding: 12px;
+    border: 1px solid #fff;
+    color: #333;
+  }
+  td.bold { font-weight: 700; }
+  td.highlight { background: #d3dcea; font-weight: 700; }
+  
+  .formula-block {
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .formula-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .math {
+    font-family: 'Times New Roman', serif;
+    font-size: 20px;
+    font-style: italic;
+    margin: 10px 0 10px 20px;
+  }
+  .math span { font-style: normal; }
+  .desc {
+    font-size: 15px;
+    color: #444;
+  }
+  .psb-context {
+    background: #fff3cd;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #664d03;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <h1>Оценка экономической эффективности внедрения системы</h1>
+
+  <div class="psb-context">
+    <strong>Бизнес-контекст (ПСБ Банк, отдел МСБ):</strong> Операция — полный цикл ведения задачи по клиенту (постановка задачи менеджеру, контроль статуса через звонки/почту, ручной сбор статистики в Excel в конце недели). Внедрение корпоративного бота с мини-приложением автоматизирует эти процессы.
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <table>
+        <tr>
+          <th>Метрика</th>
+          <th>AS-IS (Ручное ведение)</th>
+          <th>TO-BE (VK Бот + App)</th>
+          <th>Δ (эффект)</th>
+        </tr>
+        <tr>
+          <td>Время на операцию</td>
+          <td>24.0 мин</td>
+          <td>3.0 мин</td>
+          <td class="bold">↓ –21.0 мин</td>
+        </tr>
+        <tr>
+          <td>Время на операцию (в часах)</td>
+          <td>0.4 ч</td>
+          <td>0.05 ч</td>
+          <td class="bold">↓ –0.35 ч</td>
+        </tr>
+        <tr>
+          <td>Ускорение</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="bold">х8 раз</td>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+      <table>
+        <tr>
+          <th>Показатель</th>
+          <th>Значение</th>
+        </tr>
+        <tr>
+          <td>Средняя ставка менеджера МСБ</td>
+          <td>900 ₽/час</td>
+        </tr>
+        <tr>
+          <td>Экономия времени (Δt)</td>
+          <td>0.35 ч</td>
+        </tr>
+        <tr>
+          <td class="highlight">Экономия на операцию</td>
+          <td class="highlight">315 ₽</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Левая колонка формул -->
+    <div>
+      <div class="formula-block">
+        <div class="formula-title">Годовой экономический эффект (основной процесс):</div>
+        <div class="math">C<sub>process</sub> = N × Δt × R × k</div>
+        <div class="desc">Где N — количество операций в год (20 000 задач в отделе МСБ)<br>k — коэффициент использования (adoption rate = 0.9)</div>
+        <div class="math">C<sub>process</sub> = 20 000 × 0.35 × 900 × 0.9 = <span>5 670 000 ₽</span></div>
+      </div>
+
+      <div class="formula-block">
+        <div class="formula-title">Экономия на операционной поддержке:</div>
+        <div class="math">C<sub>support</sub> = N<sub>s</sub> × S × k</div>
+        <div class="desc">Где S — стоимость обработки 1 запроса "Где мои задачи / KPI?" (150 ₽)<br>N<sub>s</sub> — кол-во запросов (8 000 в год), k = 0.8 (предотвращенные запросы)</div>
+        <div class="math">C<sub>support</sub> = 8 000 × 150 × 0.8 = <span>960 000 ₽</span></div>
+      </div>
+      
+      <div class="formula-block" style="background:#e8f4f8; padding:15px; border-radius:8px;">
+        <strong>Общая экономия в год:</strong> 5 670 000 + 960 000 = <strong>6 630 000 ₽</strong>
+      </div>
+    </div>
+
+    <!-- Правая колонка формул -->
+    <div>
+      <div class="formula-block">
+        <div class="formula-title">Сокращение FTE:</div>
+        <div class="math">FTE = (N × Δt) / T</div>
+        <div class="desc">Где T — фонд рабочего времени (1970 часов в год)</div>
+        <div class="math">FTE = (20 000 × 0.35) / 1970 ≈ <span>3.5 сотрудника</span></div>
+      </div>
+
+      <div class="formula-block">
+        <div class="formula-title">Затраты на разработку (C<sub>dev</sub>):</div>
+        <div class="math">C<sub>dev</sub> = Σ (FTE<sub>team</sub> × R<sub>i</sub> × T<sub>i</sub>)</div>
+        <div class="desc">Команда 3 чел., средняя ставка 120 000 ₽, 4 месяца разработки</div>
+        <div class="math">C<sub>dev</sub> = 3 × 120 000 × 4 = <span>1 440 000 ₽</span></div>
+      </div>
+
+      <div class="formula-block">
+        <div class="formula-title">Затраты на инфраструктуру (C<sub>infra</sub>):</div>
+        <div class="desc">Облачные серверы (PostgreSQL) + поддержка = 260 000 ₽/год</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROI и Окупаемость -->
+  <div style="border-top: 2px solid #ccc; padding-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap:40px;">
+    <div class="formula-block">
+      <div class="formula-title">ROI (Рентабельность инвестиций):</div>
+      <div class="math" style="font-size:18px;">ROI = (Экономия − Затраты) / Затраты × 100%</div>
+      <div class="math" style="font-size:18px;">ROI = (6.63 − 1.7) / 1.7 × 100% = <span>290%</span></div>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-title">Срок окупаемости (Payback):</div>
+      <div class="math" style="font-size:18px;">Payback = Затраты / (Экономия / 12)</div>
+      <div class="math" style="font-size:18px;">Payback = 1.7 / (6.63 / 12) ≈ <span>3.1 месяца</span></div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

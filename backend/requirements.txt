@@ -1,0 +1,12 @@
+fastapi==0.111.0
+uvicorn==0.30.1
+vkbottle==4.4.1
+SQLAlchemy==2.0.30
+asyncpg==0.29.0
+alembic==1.13.1
+pydantic-settings==2.2.1
+openpyxl==3.1.2
+matplotlib==3.8.4
+pandas==2.2.2
+reportlab==4.2.0
+python-multipart==0.0.9

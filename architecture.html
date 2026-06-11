@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Архитектура системы</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #F0F4FF;
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+  }
+
+  .slide {
+    width: 1000px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    padding: 36px 44px 40px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 30px;
+  }
+
+  /* ===== СХЕМА ===== */
+  .diagram {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+
+  /* --- Верхний блок: пользователь --- */
+  .user-block {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .user-card {
+    background: #E8F5E9;
+    border: 2px solid #A5D6A7;
+    border-radius: 12px;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2E7D32;
+  }
+
+  .user-card .icon { font-size: 22px; display: block; margin-bottom: 4px; }
+
+  /* --- Платформа ВК --- */
+  .vk-platform {
+    margin-top: 16px;
+    background: linear-gradient(135deg, #1976D2, #1565C0);
+    color: white;
+    border-radius: 12px;
+    padding: 14px 60px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+  }
+
+  .vk-platform .sub {
+    font-size: 11px;
+    font-weight: 500;
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+
+  /* --- Разветвление --- */
+  .fork-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 0;
+    position: relative;
+  }
+
+  .fork-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: #90CAF9;
+  }
+
+  .fork-branch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 44%;
+    padding-top: 12px;
+    position: relative;
+  }
+
+  .fork-branch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 12px;
+    background: #90CAF9;
+  }
+
+  .arrow-down {
+    width: 1px;
+    height: 24px;
+    background: #90CAF9;
+    position: relative;
+  }
+
+  .arrow-down::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -4px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #90CAF9;
+  }
+
+  /* --- Клиентские блоки --- */
+  .client-box {
+    border-radius: 12px;
+    padding: 14px 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .client-box.bot-box {
+    background: #FFF8E1;
+    border: 2px solid #FFD54F;
+  }
+
+  .client-box.app-box {
+    background: #E3F2FD;
+    border: 2px solid #64B5F6;
+  }
+
+  .client-box .box-title {
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  .bot-box .box-title { color: #F57F17; }
+  .app-box .box-title { color: #1565C0; }
+
+  .client-box .box-tech {
+    font-size: 11px;
+    font-weight: 600;
+    color: #607D8B;
+    margin-bottom: 5px;
+  }
+
+  .client-box .box-desc {
+    font-size: 10.5px;
+    color: #78909C;
+    line-height: 1.4;
+  }
+
+  /* --- Центральный сервер --- */
+  .server-row {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    margin-top: 0;
+  }
+
+  .server-arrows {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 4px 0;
+  }
+
+  .server-arrow-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 44%;
+  }
+
+  .label-arrow {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #90A4AE;
+    margin-bottom: 3px;
+  }
+
+  .fastapi-box {
+    background: linear-gradient(135deg, #00695C, #00897B);
+    color: white;
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .fastapi-box .box-title {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  .fastapi-box .box-sub {
+    font-size: 11px;
+    opacity: 0.85;
+    font-weight: 500;
+  }
+
+  .fastapi-inner {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .fastapi-module {
+    flex: 1;
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.95);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .fastapi-module span {
+    display: block;
+    font-size: 10px;
+    font-weight: 400;
+    opacity: 0.75;
+    margin-top: 2px;
+  }
+
+  /* --- SQLAlchemy --- */
+  .orm-box {
+    background: #F3E5F5;
+    border: 2px solid #CE93D8;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #6A1B9A;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .orm-box .orm-sub {
+    font-size: 10px;
+    color: #9C4DCC;
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  /* --- База данных --- */
+  .db-box {
+    background: linear-gradient(135deg, #37474F, #455A64);
+    color: white;
+    border-radius: 12px;
+    padding: 16px 24px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .db-box .box-title {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  .db-box .box-sub {
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  .db-tables {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .db-table {
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* --- Отчётность --- */
+  .reports-box {
+    background: #FBE9E7;
+    border: 2px solid #FFAB91;
+    border-radius: 10px;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #BF360C;
+    width: 100%;
+  }
+
+  .reports-box .rep-sub {
+    font-size: 10px;
+    color: #E64A19;
+    font-weight: 500;
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  /* --- Utility --- */
+  .center-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 4px 0;
+  }
+
+  .h-line { width: 1px; height: 20px; background: #B0BEC5; position: relative; }
+  .h-line.arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -4px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #B0BEC5;
+  }
+
+  .h-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #90A4AE;
+    background: #fff;
+    padding: 1px 8px;
+    border-radius: 10px;
+    border: 1px solid #CFD8DC;
+  }
+
+  .two-col {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .two-col .center-arrow {
+    width: auto;
+    flex: 1;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <h1>Архитектура системы</h1>
+
+  <div class="diagram">
+
+    <!-- 1. ПОЛЬЗОВАТЕЛЬ -->
+    <div class="user-block">
+      <div class="user-card"><span class="icon">👩‍💼</span>Сотрудник</div>
+      <div class="user-card"><span class="icon">👨‍💼</span>Руководитель</div>
+    </div>
+
+    <!-- стрелка вниз -->
+    <div class="center-arrow" style="padding:6px 0">
+      <div class="h-line arrow"></div>
+    </div>
+
+    <!-- 2. ПЛАТФОРМА ВК -->
+    <div class="vk-platform" style="width:60%">
+      Платформа ВКонтакте
+      <div class="sub">Единая точка входа для всех пользователей системы</div>
+    </div>
+
+    <!-- разветвление -->
+    <div class="fork-row" style="margin-top:0;padding-top:0">
+      <div style="width:44%;display:flex;flex-direction:column;align-items:center">
+        <div class="center-arrow"><div class="h-line" style="height:30px;background:#FFD54F"></div></div>
+
+        <!-- 3А. БОТ -->
+        <div class="client-box bot-box" style="width:100%">
+          <div class="box-title">Чат-бот (VK Long Poll)</div>
+          <div class="box-tech">vkbottle 4.4</div>
+          <div class="box-desc">Пользователь пишет команды в диалог с ботом. Бот отвечает сообщениями, клавиатурами, присылает отчёты файлами.</div>
+        </div>
+      </div>
+
+      <div style="width:44%;display:flex;flex-direction:column;align-items:center">
+        <div class="center-arrow"><div class="h-line" style="height:30px;background:#64B5F6"></div></div>
+
+        <!-- 3Б. МИНИ-АПП -->
+        <div class="client-box app-box" style="width:100%">
+          <div class="box-title">Мини-приложение (VK Mini Apps)</div>
+          <div class="box-tech">React 18 · Vite · VKUI · VK Bridge</div>
+          <div class="box-desc">Пользователь открывает визуальный интерфейс: Канбан, календарь, проекты, аналитика.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- стрелки к серверу -->
+    <div class="server-arrows" style="margin-top:6px">
+      <div class="server-arrow-item">
+        <div class="h-label">Long Poll / asyncio</div>
+        <div class="h-line arrow" style="background:#FFD54F;margin-top:2px"></div>
+        <div class="h-line arrow" style="background:#FFD54F;transform:rotate(180deg)"></div>
+      </div>
+      <div class="server-arrow-item">
+        <div class="h-label">HTTP REST API (JSON)</div>
+        <div class="h-line arrow" style="background:#64B5F6;margin-top:2px"></div>
+        <div class="h-line arrow" style="background:#64B5F6;transform:rotate(180deg)"></div>
+      </div>
+    </div>
+
+    <!-- 4. СЕРВЕР FastAPI -->
+    <div class="fastapi-box">
+      <div class="box-title">Сервер (Backend) — FastAPI + Uvicorn</div>
+      <div class="box-sub">Python 3.10+ · Единый сервер обслуживает и бота, и мини-приложение</div>
+      <div class="fastapi-inner">
+        <div class="fastapi-module">bot.py<span>Логика бота: команды, уведомления, рассылки</span></div>
+        <div class="fastapi-module">api.py<span>REST-эндпоинты для React-фронтенда</span></div>
+        <div class="fastapi-module">services.py<span>Генерация отчётов Excel, PDF, графиков</span></div>
+        <div class="fastapi-module">models.py<span>Структуры данных: User, Task, Project</span></div>
+      </div>
+    </div>
+
+    <!-- стрелка к ORM -->
+    <div class="center-arrow" style="padding:4px 0">
+      <div class="h-line arrow"></div>
+      <div class="h-label">SQLAlchemy ORM — преобразует Python-объекты в SQL-запросы</div>
+      <div class="h-line arrow"></div>
+    </div>
+
+    <!-- 5. БАЗА ДАННЫХ -->
+    <div class="db-box">
+      <div class="box-title">База данных — PostgreSQL 15</div>
+      <div class="box-sub">Постоянное хранилище всех данных системы</div>
+      <div class="db-tables">
+        <div class="db-table">users<br><span style="font-size:9px;opacity:0.7">сотрудники</span></div>
+        <div class="db-table">tasks<br><span style="font-size:9px;opacity:0.7">задачи</span></div>
+        <div class="db-table">statuses<br><span style="font-size:9px;opacity:0.7">статусы</span></div>
+        <div class="db-table">projects<br><span style="font-size:9px;opacity:0.7">проекты</span></div>
+      </div>
+    </div>
+
+    <!-- стрелка к отчётам -->
+    <div class="center-arrow" style="padding:4px 0">
+      <div class="h-line"></div>
+    </div>
+
+    <!-- 6. ОТЧЁТНОСТЬ -->
+    <div class="reports-box">
+      Система отчётности
+      <div class="rep-sub">Matplotlib — диаграммы · openpyxl — Excel · ReportLab — PDF<br>Генерируются по запросу из бота и отправляются сотруднику файлом</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

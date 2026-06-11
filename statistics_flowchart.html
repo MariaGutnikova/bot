@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Алгоритм генерации статистики</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 1200px;
+  }
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Алгоритм формирования и отправки статистики (обновлённый)</h2>
+  <div class="mermaid">
+    %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#333333', 'lineColor': '#555555', 'fontFamily': 'Arial', 'fontSize': '14px'}}}%%
+    flowchart LR
+      classDef task fill:#f3e5f5,stroke:#ce93d8,stroke-width:1.5px;
+      classDef db fill:#e3f2fd,stroke:#64b5f6,stroke-width:1.5px;
+      classDef diamond fill:#fff3e0,stroke:#ffb74d,stroke-width:1.5px;
+
+      subgraph SG_Req ["Запрос"]
+          REQ["Пользователь<br>запрашивает дашборд"]:::task
+      end
+
+      subgraph SG_Proc ["Обработка"]
+          DB[("PostgreSQL 15<br>(SQLAlchemy ORM)")]:::db
+          D1{"Статус задач"}:::diamond
+          D2{"Рейтинг<br>сотрудников"}:::diamond
+          
+          DB --> D1
+          DB --> D2
+      end
+      
+      REQ --> DB
+
+      subgraph SG_Gen ["Генерация"]
+          G1["Matplotlib<br>Круговая диаграмма"]:::task
+          G2["Matplotlib<br>Столбчатая диаграмма"]:::task
+          
+          D1 --> G1
+          D2 --> G2
+      end
+
+      subgraph SG_Send ["Отправка"]
+          SEND1["PNG -> VK API загрузка<br>(через vkbottle)"]:::task
+          SEND2["Отправка<br>в чат"]:::task
+          
+          G1 --> SEND1
+          G2 --> SEND1
+          SEND1 --> SEND2
+      end
+
+      END_NODE["Пользователь<br>видит графики"]:::task
+      SEND2 --> END_NODE
+
+  </div>
+</div>
+
+<script>
+  mermaid.initialize({ 
+    startOnLoad: true,
+    flowchart: {
+      nodeSpacing: 40,
+      rankSpacing: 60,
+      padding: 20
+    }
+  });
+</script>
+
+</body>
+</html>

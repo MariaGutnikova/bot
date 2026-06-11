@@ -1,0 +1,283 @@
+2026-05-31T15:49:53Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-05-31T15:49:53Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-05-31T15:50:00Z INF +--------------------------------------------------------------------------------------------+
+2026-05-31T15:50:00Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-05-31T15:50:00Z INF |  https://removed-mature-mai-revelation.trycloudflare.com                                   |
+2026-05-31T15:50:00Z INF +--------------------------------------------------------------------------------------------+
+2026-05-31T15:50:00Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-05-31T15:50:00Z INF Version 2026.5.2 (Checksum cd9f764abfd06757b4def10ee5ba3d862381ed9fc02d6c1f06086c23d88695c6)
+2026-05-31T15:50:00Z INF GOOS: darwin, GOVersion: go1.26.2, GoArch: arm64
+2026-05-31T15:50:00Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:10888]
+2026-05-31T15:50:00Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-05-31T15:50:00Z ERR Failed to fetch features, default to disable error="lookup cfd-features.argotunnel.com on [::1]:53: read udp [::1]:57906->[::1]:53: read: connection refused"
+2026-05-31T15:50:00Z INF Generated Connector ID: c55e6899-faf7-4d26-9ecb-8416f737bee0
+2026-05-31T15:50:00Z WRN Unable to lookup protocol percentage.
+2026-05-31T15:50:00Z INF Initial protocol quic
+2026-05-31T15:50:00Z INF ICMP proxy will use 198.18.0.1 as source for IPv4
+2026-05-31T15:50:00Z INF ICMP proxy will use ::1 in zone lo0 as source for IPv6
+2026-05-31T15:50:00Z INF Created ICMP proxy listening on 198.18.0.1:0
+2026-05-31T15:50:00Z INF Created ICMP proxy listening on [::1]:0
+2026-05-31T15:50:00Z INF ICMP proxy will use 198.18.0.1 as source for IPv4
+2026-05-31T15:50:00Z INF ICMP proxy will use ::1 in zone lo0 as source for IPv6
+2026-05-31T15:50:00Z INF Starting metrics server on 127.0.0.1:20242/metrics
+2026-05-31T15:50:01Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T15:50:01Z ERR Failed to initialize DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:63883->[::1]:53: read: connection refused"
+2026-05-31T15:50:02Z INF Registered tunnel connection connIndex=0 connection=abaffc10-38b9-4d37-aa94-f7c1671ca1b7 event=0 ip=198.41.200.13 location=iad07 protocol=quic
+2026-05-31T15:50:08Z INF +-------------------------------------------------------------------------------------+
+2026-05-31T15:50:08Z INF |                               CONNECTIVITY PRE-CHECKS                               |
+2026-05-31T15:50:08Z INF +-------------------------------------------------------------------------------------+
+2026-05-31T15:50:08Z INF |  COMPONENT         TARGET                     STATUS  DETAILS                       |
+2026-05-31T15:50:08Z INF |  DNS Resolution    region1.v2.argotunnel.com  PASS    DNS Resolved successfully     |
+2026-05-31T15:50:08Z INF |  DNS Resolution    region2.v2.argotunnel.com  PASS    DNS Resolved successfully     |
+2026-05-31T15:50:08Z INF |  UDP Connectivity  region1.v2.argotunnel.com  PASS    QUIC connection successful    |
+2026-05-31T15:50:08Z INF |  UDP Connectivity  region2.v2.argotunnel.com  PASS    QUIC connection successful    |
+2026-05-31T15:50:08Z INF |  TCP Connectivity  region1.v2.argotunnel.com  PASS    HTTP/2 connection successful  |
+2026-05-31T15:50:08Z INF |  TCP Connectivity  region2.v2.argotunnel.com  PASS    HTTP/2 connection successful  |
+2026-05-31T15:50:08Z INF |  Cloudflare API    api.cloudflare.com:443     PASS    API is reachable              |
+2026-05-31T15:50:08Z INF |                                                                                     |
+2026-05-31T15:50:08Z INF |  SUMMARY: Environment is healthy. cloudflared will use 'quic' as primary protocol.  |
+2026-05-31T15:50:08Z INF +-------------------------------------------------------------------------------------+
+2026-05-31T15:50:08Z INF precheck component="DNS Resolution" details="DNS Resolved successfully" run_id=c8140a44-48b4-4ea4-a390-ab57ce3fe243 status=pass target=region1.v2.argotunnel.com
+2026-05-31T15:50:08Z INF precheck component="DNS Resolution" details="DNS Resolved successfully" run_id=c8140a44-48b4-4ea4-a390-ab57ce3fe243 status=pass target=region2.v2.argotunnel.com
+2026-05-31T15:50:08Z INF precheck component="UDP Connectivity" details="QUIC connection successful" run_id=c8140a44-48b4-4ea4-a390-ab57ce3fe243 status=pass target=region1.v2.argotunnel.com
+2026-05-31T15:50:08Z INF precheck component="UDP Connectivity" details="QUIC connection successful" run_id=c8140a44-48b4-4ea4-a390-ab57ce3fe243 status=pass target=region2.v2.argotunnel.com
+2026-05-31T15:50:08Z INF precheck component="TCP Connectivity" details="HTTP/2 connection successful" run_id=c8140a44-48b4-4ea4-a390-ab57ce3fe243 status=pass target=region1.v2.argotunnel.com
+2026-05-31T15:50:08Z INF precheck component="TCP Connectivity" details="HTTP/2 connection successful" run_id=c8140a44-48b4-4ea4-a390-ab57ce3fe243 status=pass target=region2.v2.argotunnel.com
+2026-05-31T15:50:08Z INF precheck component="Cloudflare API" details="API is reachable" run_id=c8140a44-48b4-4ea4-a390-ab57ce3fe243 status=pass target=api.cloudflare.com:443
+2026-05-31T15:50:08Z INF precheck complete hard_fail=false run_id=c8140a44-48b4-4ea4-a390-ab57ce3fe243 suggested_protocol=quic
+2026-05-31T15:55:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:52915->[::1]:53: read: connection refused"
+2026-05-31T16:00:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:63082->[::1]:53: read: connection refused"
+2026-05-31T16:05:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:61858->[::1]:53: read: connection refused"
+2026-05-31T16:10:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:59024->[::1]:53: read: connection refused"
+2026-05-31T16:13:43Z ERR failed to accept incoming stream requests error="failed to accept QUIC stream: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:13:43Z ERR failed to run the datagram handler error="timeout: no recent network activity" connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:13:43Z ERR failed to serve tunnel connection error="accept stream listener encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:13:43Z ERR Serve tunnel error error="accept stream listener encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:13:43Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:13:45Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:13:50Z ERR Failed to dial a quic connection error="failed to dial to edge with quic: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:13:50Z INF Retrying connection in up to 4s connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:13:51Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:13:56Z INF Registered tunnel connection connIndex=0 connection=5fbad530-2f1f-4784-b42f-2996c4539467 event=0 ip=198.41.192.167 location=iad02 protocol=quic
+2026-05-31T16:15:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:49336->[::1]:53: read: connection refused"
+2026-05-31T16:15:58Z ERR  error="timeout: no recent network activity" connIndex=0 event=1 ingressRule=0 originService=http://localhost:10888
+2026-05-31T16:15:58Z ERR Request failed error="timeout: no recent network activity" connIndex=0 dest=https://removed-mature-mai-revelation.trycloudflare.com/src/App.jsx?t=1780244108689 event=0 ip=198.41.192.167 type=http
+2026-05-31T16:15:58Z ERR failed to run the datagram handler error="timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:15:58Z ERR failed to accept incoming stream requests error="failed to accept QUIC stream: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:15:58Z ERR failed to serve tunnel connection error="datagram manager encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:15:58Z ERR Serve tunnel error error="datagram manager encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:15:58Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:15:59Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:16:00Z INF Registered tunnel connection connIndex=0 connection=ccb2449d-9f22-438a-bb52-7d3a8f8d4cc0 event=0 ip=198.41.192.167 location=iad02 protocol=quic
+2026-05-31T16:20:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:63107->[::1]:53: read: connection refused"
+2026-05-31T16:20:11Z ERR failed to run the datagram handler error="timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:20:11Z ERR failed to accept incoming stream requests error="failed to accept QUIC stream: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:20:11Z ERR failed to serve tunnel connection error="datagram manager encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:20:11Z ERR Serve tunnel error error="datagram manager encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:20:11Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:20:12Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:20:22Z ERR Failed to dial a quic connection error="failed to dial to edge with quic: timeout: handshake did not complete in time" connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:20:22Z INF Retrying connection in up to 4s connIndex=0 event=0 ip=198.41.192.167
+2026-05-31T16:20:26Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.113
+2026-05-31T16:20:32Z INF Registered tunnel connection connIndex=0 connection=3cdb1dba-ef9d-4d81-a8a0-f4b0eeb40e15 event=0 ip=198.41.200.113 location=iad11 protocol=quic
+2026-05-31T16:25:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:63065->[::1]:53: read: connection refused"
+2026/05/31 19:29:01 Unsolicited response received on idle HTTP channel starting with "HTTP/1.1 400 Bad Request\r\n\r\n"; err=<nil>
+2026-05-31T16:29:54Z ERR failed to accept incoming stream requests error="failed to accept QUIC stream: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.200.113
+2026-05-31T16:29:54Z ERR failed to run the datagram handler error="timeout: no recent network activity" connIndex=0 event=0 ip=198.41.200.113
+2026-05-31T16:29:54Z ERR failed to serve tunnel connection error="accept stream listener encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.113
+2026-05-31T16:29:54Z ERR Serve tunnel error error="accept stream listener encountered a failure while serving" connIndex=0 event=0 ip=198.41.200.113
+2026-05-31T16:29:54Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.41.200.113
+2026-05-31T16:29:56Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.113
+2026-05-31T16:30:01Z ERR Failed to dial a quic connection error="failed to dial to edge with quic: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.200.113
+2026-05-31T16:30:01Z INF Retrying connection in up to 4s connIndex=0 event=0 ip=198.41.200.113
+2026-05-31T16:30:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:49414->[::1]:53: read: connection refused"
+2026-05-31T16:30:03Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.27
+2026-05-31T16:30:08Z ERR Failed to dial a quic connection error="failed to dial to edge with quic: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.27
+2026-05-31T16:30:08Z INF Retrying connection in up to 8s connIndex=0 event=0 ip=198.41.192.27
+2026-05-31T16:30:13Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:30:18Z ERR Failed to dial a quic connection error="failed to dial to edge with quic: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:30:18Z INF Retrying connection in up to 16s connIndex=0 event=0 ip=198.41.200.13
+2026-05-31T16:30:25Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.23
+2026-05-31T16:30:30Z ERR Failed to dial a quic connection error="failed to dial to edge with quic: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.200.23
+2026-05-31T16:30:30Z INF Retrying connection in up to 32s connIndex=0 event=0 ip=198.41.200.23
+2026-05-31T16:30:37Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.233
+2026-05-31T16:30:42Z ERR Failed to dial a quic connection error="failed to dial to edge with quic: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.200.233
+2026-05-31T16:30:42Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.200.233
+2026-05-31T16:30:52Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T16:30:54Z INF Registered tunnel connection connIndex=0 connection=1e61f9ca-543f-40c3-abfa-c8b4728a936b event=0 ip=198.41.192.107 location=iad03 protocol=quic
+2026-05-31T16:35:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:49875->[::1]:53: read: connection refused"
+2026-05-31T16:40:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:50737->[::1]:53: read: connection refused"
+2026-05-31T16:43:50Z ERR failed to accept incoming stream requests error="failed to accept QUIC stream: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T16:43:50Z ERR failed to run the datagram handler error="timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T16:43:50Z ERR failed to serve tunnel connection error="accept stream listener encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T16:43:50Z ERR Serve tunnel error error="accept stream listener encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T16:43:50Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T16:43:50Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T16:43:55Z ERR Failed to dial a quic connection error="failed to dial to edge with quic: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T16:43:55Z INF Retrying connection in up to 4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T16:43:58Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T16:44:03Z INF Registered tunnel connection connIndex=0 connection=6f4b2bdd-b61d-4ede-963c-ad6f3d5b814d event=0 ip=198.41.192.77 location=iad15 protocol=quic
+2026/05/31 19:45:01 Unsolicited response received on idle HTTP channel starting with "HTTP/1.1 400 Bad Request\r\n\r\n"; err=<nil>
+2026-05-31T16:45:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:60243->[::1]:53: read: connection refused"
+2026-05-31T16:49:59Z ERR Failed to refresh feature selector error="lookup cfd-features.argotunnel.com on [::1]:53: read udp [::1]:53899->[::1]:53: read: connection refused"
+2026-05-31T16:50:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:61932->[::1]:53: read: connection refused"
+2026-05-31T16:55:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:57375->[::1]:53: read: connection refused"
+2026-05-31T17:00:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:53423->[::1]:53: read: connection refused"
+2026-05-31T17:00:06Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://localhost:10888
+2026-05-31T17:00:06Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://localhost:10888
+2026-05-31T17:00:06Z ERR Request failed error="Incoming request ended abruptly: context canceled" connIndex=0 dest=https://removed-mature-mai-revelation.trycloudflare.com/node_modules/@vkontakte/vkui/dist/vkui.css event=0 ip=198.41.192.77 type=http
+2026-05-31T17:00:06Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://localhost:10888
+2026-05-31T17:00:06Z ERR Request failed error="Incoming request ended abruptly: context canceled" connIndex=0 dest=https://removed-mature-mai-revelation.trycloudflare.com/node_modules/vite/dist/client/env.mjs event=0 ip=198.41.192.77 type=http
+2026-05-31T17:00:06Z ERR Request failed error="Incoming request ended abruptly: context canceled" connIndex=0 dest=https://removed-mature-mai-revelation.trycloudflare.com/src/App.css?t=1780246235274 event=0 ip=198.41.192.77 type=http
+2026-05-31T17:00:06Z ERR  error="Incoming request ended abruptly: context canceled" connIndex=0 event=1 ingressRule=0 originService=http://localhost:10888
+2026-05-31T17:00:06Z ERR Request failed error="Incoming request ended abruptly: context canceled" connIndex=0 dest=https://removed-mature-mai-revelation.trycloudflare.com/src/App.jsx?t=1780245124185 event=0 ip=198.41.192.77 type=http
+2026/05/31 20:03:31 Unsolicited response received on idle HTTP channel starting with "HTTP/1.1 400 Bad Request\r\n\r\n"; err=<nil>
+2026-05-31T17:05:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:49653->[::1]:53: read: connection refused"
+2026-05-31T17:10:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:62716->[::1]:53: read: connection refused"
+2026-05-31T17:14:10Z ERR  error="stream 833 canceled by remote with error code 0" connIndex=0 event=1 ingressRule=0 originService=http://localhost:10888
+2026-05-31T17:14:10Z ERR Request failed error="stream 833 canceled by remote with error code 0" connIndex=0 dest=https://removed-mature-mai-revelation.trycloudflare.com/src/App.jsx?t=1780247552261 event=0 ip=198.41.192.77 type=http
+2026-05-31T17:15:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:50071->[::1]:53: read: connection refused"
+2026-05-31T17:20:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:49697->[::1]:53: read: connection refused"
+2026-05-31T17:25:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:64571->[::1]:53: read: connection refused"
+2026-05-31T17:26:47Z ERR  error="stream 1053 canceled by remote with error code 0" connIndex=0 event=1 ingressRule=0 originService=http://localhost:10888
+2026-05-31T17:26:47Z ERR Request failed error="stream 1053 canceled by remote with error code 0" connIndex=0 dest=https://removed-mature-mai-revelation.trycloudflare.com/src/App.jsx?t=1780247628827 event=0 ip=198.41.192.77 type=http
+2026-05-31T17:30:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:53328->[::1]:53: read: connection refused"
+2026-05-31T17:35:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:63896->[::1]:53: read: connection refused"
+2026-05-31T17:40:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:60504->[::1]:53: read: connection refused"
+2026-05-31T17:45:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:63183->[::1]:53: read: connection refused"
+2026-05-31T17:49:59Z ERR Failed to refresh feature selector error="lookup cfd-features.argotunnel.com on [::1]:53: read udp [::1]:63508->[::1]:53: read: connection refused"
+2026-05-31T17:50:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:51557->[::1]:53: read: connection refused"
+2026-05-31T17:55:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:51262->[::1]:53: read: connection refused"
+2026-05-31T18:00:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:51405->[::1]:53: read: connection refused"
+2026-05-31T18:05:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:59242->[::1]:53: read: connection refused"
+2026-05-31T18:10:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:57821->[::1]:53: read: connection refused"
+2026-05-31T18:15:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:59004->[::1]:53: read: connection refused"
+2026-05-31T18:20:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:58360->[::1]:53: read: connection refused"
+2026-05-31T18:25:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:49908->[::1]:53: read: connection refused"
+2026-05-31T18:30:01Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:56651->[::1]:53: read: connection refused"
+2026-05-31T18:34:26Z ERR failed to run the datagram handler error="timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:34:26Z ERR failed to accept incoming stream requests error="failed to accept QUIC stream: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:34:26Z ERR failed to serve tunnel connection error="datagram manager encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:34:26Z ERR Serve tunnel error error="datagram manager encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:34:26Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:34:28Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:34:28Z INF Registered tunnel connection connIndex=0 connection=9611ef75-047b-4d35-91d8-6682c20a2fa7 event=0 ip=198.41.192.77 location=iad02 protocol=quic
+2026-05-31T18:35:39Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:49911->[::1]:53: read: connection refused"
+2026-05-31T18:40:39Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:61884->[::1]:53: read: connection refused"
+2026-05-31T18:42:23Z ERR failed to run the datagram handler error="timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:42:23Z ERR failed to accept incoming stream requests error="failed to accept QUIC stream: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:42:23Z ERR failed to serve tunnel connection error="datagram manager encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:42:23Z ERR Serve tunnel error error="datagram manager encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:42:23Z INF Retrying connection in up to 1s connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T18:42:23Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T19:00:23Z ERR Failed to dial a quic connection error="failed to dial to edge with quic: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T19:00:23Z INF Retrying connection in up to 4s connIndex=0 event=0 ip=198.41.192.77
+2026-05-31T19:00:24Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.53
+2026-05-31T19:15:31Z ERR Failed to dial a quic connection error="failed to dial to edge with quic: timeout: no recent network activity" connIndex=0 event=0 ip=198.41.200.53
+2026-05-31T19:15:31Z INF Retrying connection in up to 8s connIndex=0 event=0 ip=198.41.200.53
+2026-05-31T19:15:34Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:15:36Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:15:36Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:15:36Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:15:36Z INF Retrying connection in up to 16s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:15:40Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:15:40Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:15:40Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:15:40Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:15:40Z INF Retrying connection in up to 32s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:00Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:01Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:01Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:01Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:01Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:29Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:30Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:30Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:30Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:30Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:49Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:49Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:49Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:49Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:20:49Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:00Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:00Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:00Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:00Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:00Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:05Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:05Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:05Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:05Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:05Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:32Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:32Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:32Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:32Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:32Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:43Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:44Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:44Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:44Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:44Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:55Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:55Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:55Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:55Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:21:55Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:10Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:11Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:11Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:11Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:11Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:40Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:40Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:40Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:40Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:40Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:22:58Z ERR Failed to refresh DNS local resolver error="lookup region1.v2.argotunnel.com on [::1]:53: read udp [::1]:58711->[::1]:53: read: connection refused"
+2026-05-31T19:23:04Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:04Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:04Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:04Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:04Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:11Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:11Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:11Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:11Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:11Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:17Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:17Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:17Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:17Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:17Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:37Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:38Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:38Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:38Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:38Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:49Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:49Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:49Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:49Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:49Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:55Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:55Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:55Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:55Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:23:55Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:10Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:10Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:10Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:10Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:10Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:17Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:17Z ERR failed to run the datagram handler error="context canceled" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:17Z ERR failed to serve tunnel connection error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:17Z ERR Serve tunnel error error="control stream encountered a failure while serving" connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:17Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.107
+2026-05-31T19:24:21Z INF Initiating graceful shutdown due to signal terminated ...
+2026-05-31T19:24:21Z ERR Connection terminated connIndex=0
+2026-05-31T19:24:21Z ERR no more connections active and exiting
+2026-05-31T19:24:21Z INF Tunnel server stopped
+2026-05-31T19:24:21Z INF Metrics server stopped

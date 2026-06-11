@@ -1,0 +1,17 @@
+
+> frontend@0.0.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 202 ms
+
+  ➜  Local:   http://localhost:10888/
+  ➜  Network: http://172.20.10.4:10888/
+  ➜  Network: http://198.18.0.1:10888/
+6:50:38 PM [vite] hmr update /src/App.jsx
+7:01:03 PM [vite] hmr update /src/App.css
+7:02:07 PM [vite] hmr update /src/App.jsx
+7:03:30 PM [vite] hmr update /src/App.css
+7:15:47 PM [vite] hmr update /src/App.jsx
+7:19:18 PM [vite] hmr update /src/App.jsx
+5:23:03 PM [vite] hmr update /src/App.jsx

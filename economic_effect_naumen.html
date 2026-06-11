@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Оценка экономической эффективности (Naumen -> In-House)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f8f9fa;
+    color: #212529;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .slide {
+    width: 1200px;
+    padding: 40px 50px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #0d6efd;
+    margin-bottom: 25px;
+    font-weight: 700;
+  }
+  .context-box {
+    background: #fff3cd;
+    border-left: 5px solid #ffc107;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  .formula-card {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #495057;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 8px;
+  }
+  .math {
+    font-family: 'Times New Roman', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #0d6efd;
+    margin: 10px 0;
+  }
+  .math span { font-style: normal; color: #212529;}
+  .math-res {
+    font-weight: 700;
+    color: #198754;
+  }
+  .desc {
+    font-size: 13px;
+    color: #6c757d;
+    margin-bottom: 10px;
+  }
+  .roi-box {
+    background: #212529;
+    color: white;
+    border-radius: 8px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+  .roi-title { font-size: 16px; color: #adb5bd; margin-bottom: 10px;}
+  .roi-val { font-size: 32px; font-weight: 700; color: #20c997; margin-bottom: 5px;}
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <h1>Расчет экономической эффективности: Отказ от Naumen Project Ruler</h1>
+
+  <div class="context-box">
+    <strong>Бизнес-контекст (Отдел МСБ ПСБ Банка, N = 200 сотрудников):</strong><br>
+    <strong>AS-IS:</strong> Использование Naumen Project Ruler. Система работала нестабильно, постоянные технические сбои и простои, сотрудники массово писали жалобы в IT-поддержку. Высокая стоимость лицензий.<br>
+    <strong>TO-BE:</strong> Переход на стабильную собственную разработку (VK Mini App + Бот).
+  </div>
+
+  <div class="grid-2">
+    
+    <!-- Левая колонка -->
+    <div>
+      <div class="formula-card" style="margin-bottom: 20px;">
+        <div class="card-title">1. Экономия от сокращения простоев (C<sub>downtime</sub>)</div>
+        <div class="desc">Устранение потерь времени из-за неработающего Naumen (4 ч/мес на человека).<br>Где T = 48 часов в год, R = 900 ₽/ч (ставка сотрудника МСБ).</div>
+        <div class="math">C<sub>downtime</sub> = N × T × R</div>
+        <div class="math">C<sub>downtime</sub> = 200 × 48 × 900 = <span class="math-res">8 640 000 ₽</span></div>
+      </div>
+
+      <div class="formula-card">
+        <div class="card-title">2. Экономия на IT-поддержке (C<sub>support</sub>)</div>
+        <div class="desc">Сокращение обращений с жалобами на баги системы.<br>Где K = 2 500 тикетов в год, S = 300 ₽ (стоимость обработки 1 тикета).</div>
+        <div class="math">C<sub>support</sub> = K × S</div>
+        <div class="math">C<sub>support</sub> = 2500 × 300 = <span class="math-res">750 000 ₽</span></div>
+      </div>
+    </div>
+
+    <!-- Правая колонка -->
+    <div>
+      <div class="formula-card" style="margin-bottom: 20px;">
+        <div class="card-title">3. Общая годовая экономия (E)</div>
+        <div class="desc">C<sub>license</sub> — стоимость лицензий Naumen (1 500 000 ₽/год).</div>
+        <div class="math">E = C<sub>downtime</sub> + C<sub>support</sub> + C<sub>license</sub></div>
+        <div class="math">E = 8.64M + 0.75M + 1.5M = <span class="math-res" style="font-size:22px;">10 890 000 ₽</span></div>
+      </div>
+
+      <div class="formula-card">
+        <div class="card-title">4. Капитальные затраты на In-House (I)</div>
+        <div class="desc">C<sub>dev</sub> = ФОТ команды (3 чел × 125 000 ₽ × 4 мес) = 1 500 000 ₽<br>
+        C<sub>infra</sub> = Инфраструктура БД PostgreSQL = 150 000 ₽</div>
+        <div class="math">I = C<sub>dev</sub> + C<sub>infra</sub></div>
+        <div class="math">I = 1 500 000 + 150 000 = <span style="color:#dc3545; font-weight:700;">1 650 000 ₽</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ROI Box -->
+  <div class="roi-box">
+    <div>
+      <div class="roi-title">ROI (Рентабельность инвестиций)</div>
+      <div class="roi-val">560%</div>
+      <div class="math" style="font-size:16px; margin:0;">ROI = (E - I) / I × 100%</div>
+      <div class="math" style="font-size:16px; margin:0; color:#fff;">ROI = (10.89M - 1.65M) / 1.65M</div>
+    </div>
+    <div style="border-left: 1px solid #495057;">
+      <div class="roi-title">Срок окупаемости (Payback)</div>
+      <div class="roi-val" style="color:#0dcaf0;">1.8 месяца</div>
+      <div class="math" style="font-size:16px; margin:0;">Payback = I / (E / 12)</div>
+      <div class="math" style="font-size:16px; margin:0; color:#fff;">Payback = 1.65M / 0.907M</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

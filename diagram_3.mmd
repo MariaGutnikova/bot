@@ -1,0 +1,28 @@
+erDiagram
+    USERS {
+        int id PK
+        bigint vk_id UK
+        string full_name
+        string role
+    }
+    TASKS {
+        int id PK
+        string text
+        int author_id FK
+        int assignee_id FK
+        string deadline
+        string priority
+        string project
+        datetime created_at
+        datetime completed_at
+    }
+    NOTIFICATIONS {
+        int id PK
+        int user_id FK
+        string text
+        boolean is_read
+        datetime created_at
+    }
+    USERS ||--o{ TASKS : "создает (author)"
+    USERS ||--o{ TASKS : "выполняет (assignee)"
+    USERS ||--o{ NOTIFICATIONS : "получает"

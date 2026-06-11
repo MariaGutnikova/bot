@@ -1,0 +1,20 @@
+graph LR
+    subgraph Клиент
+        VK_APP[VK Mini App React + VKUI]
+        VK_BOT[Чат с ботом ВКонтакте]
+    end
+    subgraph Сервер
+        NGINX[Cloudflare Tunnel / Nginx Reverse Proxy]
+        API[FastAPI Backend Python 3.12]
+        BOT_LOGIC[VKbottle Bot Event Handler]
+        DB[(PostgreSQL Database)]
+    end
+    VK_APP <-->|REST API / JSON| NGINX
+    VK_BOT <-->|Webhook / Longpoll| NGINX
+    NGINX <--> API
+    NGINX <--> BOT_LOGIC
+    API <-->|SQLAlchemy ORM| DB
+    BOT_LOGIC <-->|SQLAlchemy ORM| DB
+    style DB fill:#336791,stroke:#fff,color:#fff
+    style VK_APP fill:#4a76a8,stroke:#fff,color:#fff
+    style VK_BOT fill:#4a76a8,stroke:#fff,color:#fff

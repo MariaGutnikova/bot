@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Оценка экономической эффективности</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Segoe+UI:wght@400;600;700&display=swap');
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .slide {
+    width: 1200px;
+    padding: 40px 50px;
+    background: white;
+  }
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+  th {
+    background: #4A7ebb;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #fff;
+  }
+  td {
+    background: #e9edf4;
+    padding: 12px;
+    border: 1px solid #fff;
+    color: #333;
+  }
+  td.bold { font-weight: 700; }
+  
+  .formula-title {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .math {
+    font-family: 'Times New Roman', serif;
+    font-size: 22px;
+    font-style: italic;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+  }
+  .math span { font-style: normal; }
+  .fraction {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+  .numerator {
+    border-bottom: 1px solid #000;
+    padding: 0 5px;
+  }
+  .denominator {
+    padding: 0 5px;
+  }
+  .desc {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <h1>Оценка экономической эффективности</h1>
+
+  <!-- Сравнение AS-IS и TO-BE -->
+  <table>
+    <tr>
+      <th>Статья расходов (Отдел МСБ, 200 чел.)</th>
+      <th>AS-IS (Naumen Project Ruler)</th>
+      <th>TO-BE (In-House: VK Bot)</th>
+      <th>Δ (Экономия)</th>
+    </tr>
+    <tr>
+      <td>Лицензионные платежи (в год)</td>
+      <td>1 500 000 ₽</td>
+      <td>0 ₽ (Open Source)</td>
+      <td class="bold">1 500 000 ₽</td>
+    </tr>
+    <tr>
+      <td>Простои из-за багов (ФОТ)</td>
+      <td>8 640 000 ₽ <span style="font-size:12px;font-weight:normal;">(48 ч/год на чел)</span></td>
+      <td>0 ₽ <span style="font-size:12px;font-weight:normal;">(Стабильно)</span></td>
+      <td class="bold">8 640 000 ₽</td>
+    </tr>
+    <tr>
+      <td>Затраты на IT-поддержку тикетов</td>
+      <td>750 000 ₽ <span style="font-size:12px;font-weight:normal;">(2500 шт)</span></td>
+      <td>150 000 ₽ <span style="font-size:12px;font-weight:normal;">(500 шт)</span></td>
+      <td class="bold">600 000 ₽</td>
+    </tr>
+    <tr>
+      <td>Затраты на разработку и сервера</td>
+      <td>—</td>
+      <td>1 650 000 ₽</td>
+      <td class="bold" style="color:#d9534f;">- 1 650 000 ₽</td>
+    </tr>
+  </table>
+
+  <!-- ROI и Окупаемость (как у одногруппника) -->
+  <div style="display: grid; grid-template-columns: 1fr; gap: 40px;">
+    
+    <div>
+      <div class="formula-title">ROI (Рентабельность инвестиций):</div>
+      <div class="math">
+        <span>ROI = </span>
+        <div class="fraction">
+          <div class="numerator">C<sub>process</sub> + C<sub>support</sub> − (C<sub>dev</sub> + C<sub>infra</sub>)</div>
+          <div class="denominator">C<sub>dev</sub> + C<sub>infra</sub></div>
+        </div>
+        <span> × 100%,</span>
+      </div>
+      
+      <div class="desc">Где<br>
+      C<sub>process</sub> — экономия на основном процессе (простои + лицензии) = 10.14 млн ₽<br>
+      C<sub>support</sub> — чистая экономия на техподдержке (750к - 150к) = 0.6 млн ₽<br>
+      C<sub>dev</sub> — стоимость разработки = 1.5 млн ₽<br>
+      C<sub>infra</sub> — инфраструктурные затраты = 0.15 млн ₽</div>
+
+      <div class="math" style="justify-content: center; margin-top: 30px;">
+        <span>ROI = </span>
+        <div class="fraction">
+          <div class="numerator">10.14 + 0.6 − (1.5 + 0.15)</div>
+          <div class="denominator">1.5 + 0.15</div>
+        </div>
+        <span> × 100% = </span>
+        <div class="fraction">
+          <div class="numerator">9.09</div>
+          <div class="denominator">1.65</div>
+        </div>
+        <span> × 100% ≈ 550%</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="formula-title">Срок окупаемости:</div>
+      <div class="math">
+        <span>Payback = </span>
+        <div class="fraction">
+          <div class="numerator">C<sub>dev</sub> + C<sub>infra</sub></div>
+          <div class="denominator">(C<sub>process</sub> + C<sub>support</sub>) / 12</div>
+        </div>
+      </div>
+      
+      <div class="math" style="justify-content: center; margin-top: 20px;">
+        <span>Payback = </span>
+        <div class="fraction">
+          <div class="numerator">1.65</div>
+          <div class="denominator">10.74 / 12</div>
+        </div>
+        <span> = </span>
+        <div class="fraction">
+          <div class="numerator">1.65</div>
+          <div class="denominator">0.895</div>
+        </div>
+        <span> ≈ 1.8 месяца</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
